@@ -3,7 +3,7 @@ Scripts to delete big files automatically downloaded by WeChat PC version, it ea
 Then，I wrote these scripts, I have used these for several weeks, and work fine!
 There are only two scripts:
 
-## The use of script **DeleteWeChatBigFileCache.bat** is to use by hand:
+The use of script **DeleteWeChatBigFileCache.bat** is to use by hand:
 ```bat
 @ rem 删除微信图片缓存，只删除图片、视频和自动接收存储的别人发给你的大文件、群聊消息中的大文件，不删除文本聊天记录
 @ rem Delete big files in the cache files of WeChat PC version. Images, Videos, Files received automatically will be deleted, but history of chat will not be deleted.
@@ -22,7 +22,7 @@ There are only two scripts:
 @ rem Returen values: 0 for ok, 1 for WeChat ID not set or not found, 2 for Windows user name not found, 3 for error setting of days number.
 ```
 
-## and the use of script **AutoDeleteWeChatBigFileCache.bat** is make it auto exec on system start:
+and the use of script **AutoDeleteWeChatBigFileCache.bat** is make it auto exec on system start:
 ```bat
 @ rem auto delete wechat big files cache every time I start my computer
 @ rem 每次开机自动删除微信电脑版本客户端软件缓存的大文件
