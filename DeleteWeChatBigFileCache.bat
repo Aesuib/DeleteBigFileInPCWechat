@@ -1,107 +1,141 @@
-@ rem É¾³ıÎ¢ĞÅÍ¼Æ¬»º´æ£¬Ö»É¾³ıÍ¼Æ¬¡¢ÊÓÆµºÍ×Ô¶¯½ÓÊÕ´æ´¢µÄ±ğÈË·¢¸øÄãµÄ´óÎÄ¼ş¡¢ÈºÁÄÏûÏ¢ÖĞµÄ´óÎÄ¼ş£¬²»É¾³ıÎÄ±¾ÁÄÌì¼ÇÂ¼
+@ rem åˆ é™¤å¾®ä¿¡å›¾ç‰‡ç¼“å­˜ï¼Œåªåˆ é™¤å›¾ç‰‡ã€è§†é¢‘å’Œè‡ªåŠ¨æ¥æ”¶å­˜å‚¨çš„åˆ«äººå‘ç»™ä½ çš„å¤§æ–‡ä»¶ã€ç¾¤èŠæ¶ˆæ¯ä¸­çš„å¤§æ–‡ä»¶ï¼Œä¸åˆ é™¤æ–‡æœ¬èŠå¤©è®°å½•
 @ rem Delete big files in the cache files of WeChat PC version. Images, Videos, Files received automatically will be deleted, but history of chat will not be deleted.
-@ rem ²ÎÊı1£¬WeChatµ±Ç°µÇÂ¼ÓÃ»§Ãû£¬×¢ÒâÕâ²»ÊÇÎ¢ĞÅêÇ³Æ£¬¶øÊÇÓÃ»§Ãû£¬Çë²é¿´c:\Users\administrator\Documents\WeChat Files\Â·¾¶ÏÂµÄÄãµÄÓÃ»§´æ´¢ÎÄ¼ş¼ĞµÄÃû³Æ
+@ rem å‚æ•°1ï¼ŒWeChatå½“å‰ç™»å½•ç”¨æˆ·åï¼Œæ³¨æ„è¿™ä¸æ˜¯å¾®ä¿¡æ˜µç§°ï¼Œè€Œæ˜¯ç”¨æˆ·åï¼Œè¯·æŸ¥çœ‹c:\Users\administrator\Documents\WeChat Files\è·¯å¾„ä¸‹çš„ä½ çš„ç”¨æˆ·å­˜å‚¨æ–‡ä»¶å¤¹çš„åç§°
 @ rem Parameter 1, User ID of WeChat, not the nickname of WeChat, pay attention please! You should check folders name under c:\Users\administrator\Documents\WeChat Files\ to find your WeChat user ID.
-@ rem ²ÎÊı2£¬WindowsÏµÍ³µ±Ç°µÇÂ¼ÓÃ»§Ãû£¬Ê¡ÂÔ´Ë²ÎÊıÄ¬ÈÏÎªwindowsÏµÍ³°²×°Ê±ºòÄ¬ÈÏµÄÓÃ»§Ãûadministrator
+@ rem å‚æ•°2ï¼ŒWindowsç³»ç»Ÿå½“å‰ç™»å½•ç”¨æˆ·åï¼Œçœç•¥æ­¤å‚æ•°é»˜è®¤ä¸ºwindowsç³»ç»Ÿå®‰è£…æ—¶å€™é»˜è®¤çš„ç”¨æˆ·åadministrator
 @ rem Parameter 2, name of the windows user you are using, administrator by default if you neglect it.
-@ rem ²ÎÊı3£¬É¾³ı¶àÉÙÌìÖ®Ç°µÄ»º´æ£¬ÏŞÖµ0µ½999ÒÔÄÚ£¬ÎŞ´Ë²ÎÊıÔòÄ¬ÈÏÉ¾³ı30ÌìÇ°µÄ»º´æ£¬ÉèÎª0ÔòÈ«²¿É¾³ı
+@ rem å‚æ•°3ï¼Œåˆ é™¤å¤šå°‘å¤©ä¹‹å‰çš„ç¼“å­˜ï¼Œé™å€¼0åˆ°999ä»¥å†…ï¼Œæ— æ­¤å‚æ•°åˆ™é»˜è®¤åˆ é™¤30å¤©å‰çš„ç¼“å­˜ï¼Œè®¾ä¸º0åˆ™å…¨éƒ¨åˆ é™¤
 @ rem Parameter 3, how many days before now will be deleted by this script, limit from 0 to 999, 30 by default if neglected, to delete all set par 3 to 0.
-@ rem ÒªÉ¾³ı»º´æµÄÎÄ¼ş¼Ğ°üÀ¨ÈçÏÂÂ·¾¶£¬µ«ÊÇÎ¢ĞÅ²»¶¨ÄÄ´Î¸üĞÂ»á±ä¸ü»º´æÂ·¾¶£¬Òò´Ë£¬±¾³ÌĞòĞèÒª²»¶¨Ê±µÄĞŞ¸Ä¸üĞÂÉı¼¶
+@ rem å‚æ•°4ï¼Œå¦‚æœä½ ä¸“é—¨åœ¨å¾®ä¿¡è®¾ç½®çš„æ–‡ä»¶ç®¡ç†ä¸­æ›´æ”¹äº†å¾®ä¿¡æ–‡ä»¶çš„é»˜è®¤ä¿å­˜ä½ç½®ï¼Œåˆ™éœ€è¦åœ¨è¿™é‡Œè¾“å…¥è¿™ä¸ªè·¯å¾„ 2022-05-27å¢åŠ ä¿®æ”¹
+@ rem Parameter 4, input the changed Wechat file storage path if you changed it. 2022-05-27 added by myself
+@ rem è¦åˆ é™¤ç¼“å­˜çš„æ–‡ä»¶å¤¹åŒ…æ‹¬å¦‚ä¸‹è·¯å¾„ï¼Œä½†æ˜¯å¾®ä¿¡ä¸å®šå“ªæ¬¡æ›´æ–°ä¼šå˜æ›´ç¼“å­˜è·¯å¾„ï¼Œå› æ­¤ï¼Œæœ¬ç¨‹åºéœ€è¦ä¸å®šæ—¶çš„ä¿®æ”¹æ›´æ–°å‡çº§
+@ rem 2022-05-27ä¿®æ”¹å¢åŠ ä¸€ä¸ªæ–‡ä»¶å¤¹ä¸ºImageè¦åˆ é™¤çš„
 @ rem the big files cached by WeChat are saved automatically in the following directories, but WeChat will update and change directory structure oftentimes, so, check this script for any updates oftentimes please.
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Video\2021-08
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\File\2021-08
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Cache\2021-08
-@ rem ·µ»ØÖµ£º0ÎªÕı³££¬1ÎªWeChatÓÃ»§ÃûÎ´Ö¸¶¨»òÎ´ÕÒµ½£¬2ÎªÏµÍ³µÇÂ¼ÓÃ»§ÃûÎ´ÕÒµ½£¬3ÎªÉèÖÃÌìÊıÎª¸º»òÕßÔ¶³¬¹ı999Ìì
+@ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Image\2021-08
+@ rem è¿”å›å€¼ï¼š0ä¸ºæ­£å¸¸ï¼Œ1ä¸ºWeChatç”¨æˆ·åæœªæŒ‡å®šæˆ–æœªæ‰¾åˆ°ï¼Œ2ä¸ºç³»ç»Ÿç™»å½•ç”¨æˆ·åæœªæ‰¾åˆ°ï¼Œ3ä¸ºè®¾ç½®å¤©æ•°ä¸ºè´Ÿæˆ–è€…è¿œè¶…è¿‡999å¤©
 @ rem Returen values: 0 for ok, 1 for WeChat ID not set or not found, 2 for Windows user name not found, 3 for error setting of days number.
 
 @ echo off
 
 @ setlocal enabledelayedexpansion
 
-@ rem ÉùÃ÷±äÁ¿µÄÄ¬ÈÏÖµ
+@ rem å£°æ˜å˜é‡çš„é»˜è®¤å€¼
 @ rem default values for the pars
 set defaultdays=30
 set days=%defaultdays%
-set windowsusername="administrator"
+set windowsusername=administrator
+set ChangedWechatStoragePath=C:\Users\%windowsusername%\Documents\
+@ rem åˆå§‹åŒ–çš„è¿™ä¸ªè·¯å¾„è¿™æ˜¯é»˜è®¤çš„å­˜å‚¨è·¯å¾„
 
-@ rem µÚÒ»¸ö²ÎÊı´¦Àí
+@ rem ç¬¬ä¸€ä¸ªå‚æ•°å¤„ç†
 if [%1]==[] GOTO ERRORINFORMATION
 set wechatname=%1
 
-@ rem µÚ¶ş¸ö²ÎÊı´¦Àí
+@ rem ç¬¬äºŒä¸ªå‚æ•°å¤„ç†
 if [%2]==[] (	
 	@ rem echo setting windows system user name %windowsusername%
     @ rem echo %days% days files ago
 ) else (
     if %2% geq 0 if %2% leq 999 (
-        set days=%2
-        @ rem echo you decide to delete %days% days files ago
-        @ rem ÎªÊ²Ã´ÕâÒ»ĞĞ×ÜÊÇ¸üĞÂ²»ÁËÊıÖµÄØ£¿²¢ÇÒ²âÊÔÊµ¼ÊÉÏÊı¾İ´óÓÚ99¾Í»áÈÏÎªÔÚÕâ¼şÒÂ·şÖ®ÍâÁË£¬µ«ÊÇÃ»ÈË»áÕæµÄÉèÖÃÕâÃ´´óµÄÊı°É£¬ËùÒÔÕâÀïÎÒÄÜÅÜ¾ÍĞĞ²»ÔÙ¸ÄÁË£¬Ë­ÄÜ½â¾öÕâ¸öbugË­À´¸Ä°É
+        set days=%2%
+        echo you decide to delete %days% days files ago
+        @ rem ä¸ºä»€ä¹ˆè¿™ä¸€è¡Œæ€»æ˜¯æ›´æ–°ä¸äº†æ•°å€¼å‘¢ï¼Ÿå¹¶ä¸”æµ‹è¯•å®é™…ä¸Šæ•°æ®å¤§äº99å°±ä¼šè®¤ä¸ºåœ¨è¿™ä»¶è¡£æœä¹‹å¤–äº†ï¼Œä½†æ˜¯æ²¡äººä¼šçœŸçš„è®¾ç½®è¿™ä¹ˆå¤§çš„æ•°å§ï¼Œæ‰€ä»¥è¿™é‡Œæˆ‘èƒ½è·‘å°±è¡Œä¸å†æ”¹äº†ï¼Œè°èƒ½è§£å†³è¿™ä¸ªbugè°æ¥æ”¹å§
         @ rem here is the first bug in this script, but this script works fine for me, so I give up fixing it, will anyone help me this?
     ) else (
         set windowsusername=%2
-        @ rem µÚÈı¸ö²ÎÊıµÄºÏ·¨ĞÔ´¦Àí
+        @ rem ç¬¬ä¸‰ä¸ªå‚æ•°çš„åˆæ³•æ€§å¤„ç†
         if [%3]==[] (
-            @ rem Ê²Ã´Ò²²»×ö
+            @ rem ä»€ä¹ˆä¹Ÿä¸åš
         ) else if %3% geq 0 if %3% leq 999 (
-            @ rem Í¬ÑùÕâÀïÒ²´æÔÚÍ¬ÑùµÄbug£¬Êµ¼ÊÉÏÖ»ÒªÊäÈëÊıÖµ´óÓÚ99¾Í»á³öÈ¥ÁË£¬²»¹ÜÁË£¬·´ÕıÄÜÅÜ
+            @ rem åŒæ ·è¿™é‡Œä¹Ÿå­˜åœ¨åŒæ ·çš„bugï¼Œå®é™…ä¸Šåªè¦è¾“å…¥æ•°å€¼å¤§äº99å°±ä¼šå‡ºå»äº†ï¼Œä¸ç®¡äº†ï¼Œåæ­£èƒ½è·‘
             @ rem here is the second bug in this script, the same as the first one, I like to feed a bug as a pet for myself.........
-            set days=%3
+            set days=%3%
+            if [%4]==[] (
+                @ rem nothing should be done
+            ) else (
+                set ChangedWechatStoragePath=%4
+            ) 
         ) else (
             set days=-1
+            @ rem if [%4]==[] (
+                @ rem nothing should be done
+            @ rem ) else (
+                @ rem set ChangedWechatStoragePath=%4
+            @ rem ) 
             goto ERRORINFORMATION
-        )    
+        )
     )
 )
 
-if not exist "C:\Users\%windowsusername%\Documents" (
-	set windowsusername=John
-	GOTO ERRORINFORMATION
-) else if not exist "C:\Users\%windowsusername%\Documents\WeChat Files\%wechatname%\FileStorage" (
+@ rem echo %ChangedWechatStoragePath%
+
+@ rem if not exist "C:\Users\%windowsusername%\Documents" (
+if not exist "%ChangedWechatStoragePath%" (
+    if [%ChangedWechatStoragePath%]==C:\Users\%windowsusername%\Documents (
+        set windowsusername=John
+        GOTO ERRORINFORMATION        
+    ) else (
+        set ChangedWechatStoragePath=D:
+        GOTO ERRORINFORMATION 
+    )
+@ rem ) else if not exist "C:\Users\%windowsusername%\Documents\WeChat Files\%wechatname%\FileStorage" (
+) else if not exist "%ChangedWechatStoragePath%\WeChat Files\%wechatname%\FileStorage" (
 	set wechatname=Alice
 	GOTO ERRORINFORMATION
 )
 
-@ rem Ä¬ÈÏÊÇÖĞÎÄ°æ±¾µÄ£¬Ó¢ÎÄ°æ±¾µÄ×Ô¼ºĞŞ¸ÄÑ¡ÔñÒ»ÏÂ£ºChinese by default, change to the English line by yourself if you need:
-@ rem echo deleting cache of WeChat ID %wechatname% in Windows user %windowsusername%  %days% days files ago
-@ rem echo É¾³ıÎ¢ĞÅidºÅÎª%wechatname%µÄ²Ù×÷ÏµÍ³ÓÃ»§ÃûÎª%windowsusername%µÄ%days%ÌìÖ®Ç°µÄ´óÌå»ıÎÄ¼ş£¡
-@ rem ÕâÀï²»ÔÙ¸øÊ¹ÓÃÕß×îºóÈ·ÈÏµÄ»ú»áÁË£¬Ã»ÓĞÈ·ÈÏ¼ü£¬ÒòÎªÎÒ×Ô¼ºÒªÔÙĞ´Ò»¸ö¿ª»ú×ÔÆô¶¯½Å±¾×Ô¶¯Ö´ĞĞÉ¾³ı²Ù×÷£¬ÎŞĞèÎÒ×Ô¼ºÔÙÈ·ÈÏ
+@ rem é»˜è®¤æ˜¯ä¸­æ–‡ç‰ˆæœ¬çš„ï¼Œè‹±æ–‡ç‰ˆæœ¬çš„è‡ªå·±ä¿®æ”¹é€‰æ‹©ä¸€ä¸‹ï¼šChinese by default, change to the English line by yourself if you need:
+echo deleting cache of WeChat ID %wechatname% in Windows user %windowsusername%  %days% days files ago
+echo åˆ é™¤å¾®ä¿¡idå·ä¸º%wechatname%çš„æ“ä½œç³»ç»Ÿç”¨æˆ·åä¸º%windowsusername%çš„%days%å¤©ä¹‹å‰çš„å¤§ä½“ç§¯æ–‡ä»¶ï¼
+@ rem è¿™é‡Œä¸å†ç»™ä½¿ç”¨è€…æœ€åç¡®è®¤çš„æœºä¼šäº†ï¼Œæ²¡æœ‰ç¡®è®¤é”®ï¼Œå› ä¸ºæˆ‘è‡ªå·±è¦å†å†™ä¸€ä¸ªå¼€æœºè‡ªå¯åŠ¨è„šæœ¬è‡ªåŠ¨æ‰§è¡Œåˆ é™¤æ“ä½œï¼Œæ— éœ€æˆ‘è‡ªå·±å†ç¡®è®¤
 @ rem comment all the output, because this script will be executed automatically without printing anything after test ok.
-set rootdirectory="C:\Users\%windowsusername%\Documents\WeChat Files\%wechatname%\FileStorage"
+@ rem set rootdirectory="C:\Users\%windowsusername%\Documents\WeChat Files\%wechatname%\FileStorage"
+set rootdirectory="%ChangedWechatStoragePath%\WeChat Files\%wechatname%\FileStorage"
 
 forfiles /p %rootdirectory%\File /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
 forfiles /p %rootdirectory%\Video /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
 forfiles /p %rootdirectory%\Cache /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
+forfiles /p %rootdirectory%\Image /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
 
 exit /b 0
-@ rem Õı³£Çé¿ö´ÓÕâÀï¾ÍÍË³öÈ¥ÁË£¬ÏÂÃæÊÇ´íÎóÊäÈëµÄ´¦Àí
+@ rem æ­£å¸¸æƒ…å†µä»è¿™é‡Œå°±é€€å‡ºå»äº†ï¼Œä¸‹é¢æ˜¯é”™è¯¯è¾“å…¥çš„å¤„ç†
 
 : ERRORINFORMATION
 @ rem todo make a switch to change language easily
 @ rem I know the meaning of todo is to never do this in the future.......
-echo ²ÎÊı1£¬WeChatµ±Ç°µÇÂ¼ÓÃ»§Ãû£¬×¢ÒâÕâ²»ÊÇÎ¢ĞÅêÇ³Æ£¬¶øÊÇÓÃ»§Ãû£¬Çë²é¿´c:\Users\administrator\Documents\WeChat Files\Â·¾¶ÏÂµÄÄãµÄÓÃ»§´æ´¢ÎÄ¼ş¼ĞµÄÃû³Æ
+echo å‚æ•°1ï¼ŒWeChatå½“å‰ç™»å½•ç”¨æˆ·åï¼Œæ³¨æ„è¿™ä¸æ˜¯å¾®ä¿¡æ˜µç§°ï¼Œè€Œæ˜¯ç”¨æˆ·åï¼Œè¯·æŸ¥çœ‹c:\Users\administrator\Documents\WeChat Files\è·¯å¾„ä¸‹çš„ä½ çš„ç”¨æˆ·å­˜å‚¨æ–‡ä»¶å¤¹çš„åç§°
 echo Parameter 1, User ID of WeChat, not the nickname of WeChat, pay attention please! You should check folders name under c:\Users\administrator\Documents\WeChat Files\ to find your WeChat user ID.
-echo ²ÎÊı2£¬WindowsÏµÍ³µ±Ç°µÇÂ¼ÓÃ»§Ãû£¬Ê¡ÂÔ´Ë²ÎÊıÄ¬ÈÏÎªwindowsÏµÍ³°²×°Ê±ºòÄ¬ÈÏµÄÓÃ»§Ãûadministrator
+echo å‚æ•°2ï¼ŒWindowsç³»ç»Ÿå½“å‰ç™»å½•ç”¨æˆ·åï¼Œçœç•¥æ­¤å‚æ•°é»˜è®¤ä¸ºwindowsç³»ç»Ÿå®‰è£…æ—¶å€™é»˜è®¤çš„ç”¨æˆ·åadministrator
 echo Parameter 2, name of the windows user you are using, administrator by default if you neglect it.
-echo ²ÎÊı3£¬É¾³ı¶àÉÙÌìÖ®Ç°µÄ»º´æ£¬ÏŞÖµ0µ½999ÒÔÄÚ£¬ÎŞ´Ë²ÎÊıÔòÄ¬ÈÏÉ¾³ı30ÌìÇ°µÄ»º´æ£¬ÉèÎª0ÔòÈ«²¿É¾³ı
+echo å‚æ•°3ï¼Œåˆ é™¤å¤šå°‘å¤©ä¹‹å‰çš„ç¼“å­˜ï¼Œé™å€¼0åˆ°999ä»¥å†…ï¼Œæ— æ­¤å‚æ•°åˆ™é»˜è®¤åˆ é™¤30å¤©å‰çš„ç¼“å­˜ï¼Œè®¾ä¸º0åˆ™å…¨éƒ¨åˆ é™¤
 echo Parameter 3, how many days before now will be deleted by this script, limit from 0 to 999, 30 by default if neglected, to delete all set par 3 to 0.
+echo å‚æ•°4ï¼Œå¦‚æœä½ ä¸“é—¨åœ¨å¾®ä¿¡è®¾ç½®çš„æ–‡ä»¶ç®¡ç†ä¸­æ›´æ”¹äº†å¾®ä¿¡æ–‡ä»¶çš„é»˜è®¤ä¿å­˜ä½ç½®ï¼Œåˆ™éœ€è¦åœ¨è¿™é‡Œè¾“å…¥è¿™ä¸ªè·¯å¾„
+echo Parameter 4, input the changed Wechat file storage path if you changed it. 2022-05-27 added by myself.
 IF "%1"=="" (
-	echo ÎŞÃûÊÏÄãºÃ£¬ÎŞÃûÊÏÔÙ¼û£¡
+	echo æ— åæ°ä½ å¥½ï¼Œæ— åæ°å†è§ï¼
     echo Hello NoName, Goodbye NoName!
 	exit /b 1
 ) 
 IF %wechatname%==Alice (
-	echo ÄãÈ·ÈÏÄãµÄÎ¢ĞÅÓÃ»§Ãû²»ÊÇAliceÂğ£¿
+	echo ä½ ç¡®è®¤ä½ çš„å¾®ä¿¡ç”¨æˆ·åä¸æ˜¯Aliceå—ï¼Ÿ
     echo Are you sure your WeChat ID not Alice?
 	exit /b 1
 )
 IF %windowsusername%==John (
-	echo ÄãÈ·ÈÏÄãµÄWindowsÏµÍ³ÓÃ»§Ãû²»ÊÇJohnÂğ£¿
+	echo ä½ ç¡®è®¤ä½ çš„Windowsç³»ç»Ÿç”¨æˆ·åä¸æ˜¯Johnå—ï¼Ÿ
     echo Are you sure your Windows user name not John?
 	exit /b 2
 )
+if %ChangedWechatStoragePath%==D: (
+    echo ä½ ç¡®è®¤ä½ çš„å¾®ä¿¡çš„å­˜å‚¨è·¯å¾„ä¿®æ”¹å¯¹äº†å—ï¼Ÿ
+    echo Are you sure set the changed storage path correctly?
+    exit /b 4
+)
 if %days%==-1 (
-    echo ÄãÊ±¼ä´©Ô½ÁËÂğ£¿
+    echo ä½ æ—¶é—´ç©¿è¶Šäº†å—ï¼Ÿ
     echo Did you time travel to now?
     exit /b 3
 )
