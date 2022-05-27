@@ -13,11 +13,15 @@ The use of script **DeleteWeChatBigFileCache.bat** is to use by hand:
 @ rem Parameter 2, name of the windows user you are using, administrator by default if you neglect it.
 @ rem 参数3，删除多少天之前的缓存，限值0到999以内，无此参数则默认删除30天前的缓存，设为0则全部删除
 @ rem Parameter 3, how many days before now will be deleted by this script, limit from 0 to 999, 30 by default if neglected, to delete all set par 3 to 0.
+@ rem 参数4，如果你专门在微信设置的文件管理中更改了微信文件的默认保存位置，则需要在这里输入这个路径 2022-05-27增加修改
+@ rem Parameter 4, input the changed Wechat file storage path if you changed it. 2022-05-27 added by myself
 @ rem 要删除缓存的文件夹包括如下路径，但是微信不定哪次更新会变更缓存路径，因此，本程序需要不定时的修改更新升级
+@ rem 2022-05-27修改增加一个文件夹为Image要删除的
 @ rem the big files cached by WeChat are saved automatically in the following directories, but WeChat will update and change directory structure oftentimes, so, check this script for any updates oftentimes please.
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Video\2021-08
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\File\2021-08
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Cache\2021-08
+@ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Image\2021-08
 @ rem 返回值：0为正常，1为WeChat用户名未指定或未找到，2为系统登录用户名未找到，3为设置天数为负或者远超过999天
 @ rem Returen values: 0 for ok, 1 for WeChat ID not set or not found, 2 for Windows user name not found, 3 for error setting of days number.
 ```
