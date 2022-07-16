@@ -17,11 +17,16 @@ The use of script **DeleteWeChatBigFileCache.bat** is to use by hand:
 @ rem Parameter 4, input the changed Wechat file storage path if you changed it. 2022-05-27 added by myself
 @ rem 要删除缓存的文件夹包括如下路径，但是微信不定哪次更新会变更缓存路径，因此，本程序需要不定时的修改更新升级
 @ rem 2022-05-27修改增加一个文件夹为Image要删除的
+@ rem 2022-07-16修改升级，匹配微信在2002年6月2号的桌面版本升级，该升级修改了电脑版本微信的相关文件存储路径
 @ rem the big files cached by WeChat are saved automatically in the following directories, but WeChat will update and change directory structure oftentimes, so, check this script for any updates oftentimes please.
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Video\2021-08
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\File\2021-08
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Cache\2021-08
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Image\2021-08
+@ rem 微信于2022年6月2号升级修改了存储路径，如下
+@ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Cache\2021-08
+@ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\MsgAttach
+@ rem File、Image、和Video文件夹被废弃，而MsgAttach文件夹里面按照聊天会话窗口区分海量文件夹，比如你有10个联系人和50个群，则这里会有60个文件夹，每一个文件夹下面再按照类型区分File、Image、Video等文件夹
 @ rem 返回值：0为正常，1为WeChat用户名未指定或未找到，2为系统登录用户名未找到，3为设置天数为负或者远超过999天
 @ rem Returen values: 0 for ok, 1 for WeChat ID not set or not found, 2 for Windows user name not found, 3 for error setting of days number.
 ```
