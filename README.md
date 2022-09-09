@@ -29,6 +29,8 @@ The use of script **DeleteWeChatBigFileCache.bat** is to use by hand:
 @ rem File、Image、和Video文件夹被废弃，而MsgAttach文件夹里面按照聊天会话窗口区分海量文件夹，比如你有10个联系人和50个群，则这里会有60个文件夹，每一个文件夹下面再按照类型区分File、Image、Video等文件夹
 @ rem 返回值：0为正常，1为WeChat用户名未指定或未找到，2为系统登录用户名未找到，3为设置天数为负或者远超过999天
 @ rem Returen values: 0 for ok, 1 for WeChat ID not set or not found, 2 for Windows user name not found, 3 for error setting of days number.
+@ rem 2022-09-09修改升级，响应微信官方在2022-08-30的版本升级更新，微信本次更新又修改了存储路径，恢复了上次更新所废除掉的这个缓存视频文件的路径：
+@ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Video\
 ```
 
 and the use of script **AutoDeleteWeChatBigFileCache.bat** is make it auto exec on system start:
