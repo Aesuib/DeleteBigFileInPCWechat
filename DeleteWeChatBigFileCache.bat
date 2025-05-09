@@ -24,6 +24,7 @@
 @ rem Returen values: 0 for ok, 1 for WeChat ID not set or not found, 2 for Windows user name not found, 3 for error setting of days number.
 @ rem 2022-09-09修改升级，响应微信官方在2022-08-30的版本升级更新，微信本次更新又修改了存储路径，恢复了上次更新所废除掉的这个缓存视频文件的路径：
 @ rem c:\Users\admin\Documents\WeChat Files\qq364528149\FileStorage\Video\
+@ rem 2025-05-05修改升级，应对微信在2024-4月做的升级，这次升级，微信恢复了向File文件夹存入接受文件缓存的功能，因此这次升级取消了对该行的注释
 
 @ echo off
 
@@ -102,12 +103,15 @@ echo 删除微信id号为%wechatname%的操作系统用户名为%windowsusername
 @ rem set rootdirectory="C:\Users\%windowsusername%\Documents\WeChat Files\%wechatname%\FileStorage"
 set rootdirectory="%ChangedWechatStoragePath%\WeChat Files\%wechatname%\FileStorage"
 
-@ rem forfiles /p %rootdirectory%\File /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
+forfiles /p %rootdirectory%\File /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
+@ rem 2025-05-05恢复上面这一行代码
 forfiles /p %rootdirectory%\Video /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
 @ rem 2022-09-09恢复此行代码
 forfiles /p %rootdirectory%\Cache /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
 @ rem forfiles /p %rootdirectory%\Image /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
 forfiles /p %rootdirectory%\MsgAttach /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
+@ rem 2025-05-05增加新发现的一个文件夹的下面这一行代码
+forfiles /p %rootdirectory%\Temp /s /m *.* /d -%days% /c "cmd /c del /f /q /a @path"
 
 exit /b 0
 @ rem 正常情况从这里就退出去了，下面是错误输入的处理
